@@ -155,4 +155,71 @@ public class TestGFMatrix {
 		}
 	}
 
+	@Test
+	public void testSubMatrix(){
+		char c[][] = new char[3][3];
+		c[0][0] = (char)7;
+		c[0][1] = (char)2;
+		c[0][2] = 4;
+		c[1][0] = (char)4;
+		c[1][1] = 43;
+		c[1][2] = 10;
+		c[2][0] = 6;
+		c[2][1] = 7;
+		c[2][2] = 10;
+		
+		byte b = 8;
+		GaloisField gf = new GaloisField(b);
+		
+		GFMatrix m1 = new GFMatrix(c, gf);
+		
+		GFMatrix m2 = m1.submatrix(2);
+		
+		assertTrue(m2.getRowDimension() == 2);
+		assertTrue(m2.getColumnDimension() == m1.getColumnDimension());
+		
+		for(int i=0; i<m2.getRowDimension(); i++){
+			for(int j=0; j<m2.getColumnDimension(); j++){
+//				System.out.println(m2.get(i, j)+" == "+m1.get(i, j));
+				assertTrue(m2.get(i, j) == m1.get(i, j));
+			}	
+		}
+		
+		m1.set(1, 1, (char) 70);
+		assertFalse(m2.get(1, 1) == m1.get(1, 1));
+	}
+	
+	@Test
+	public void testSubMatrixRowsCols(){
+		char c[][] = new char[3][3];
+		c[0][0] = (char)7;
+		c[0][1] = (char)2;
+		c[0][2] = 4;
+		c[1][0] = (char)4;
+		c[1][1] = 43;
+		c[1][2] = 10;
+		c[2][0] = 6;
+		c[2][1] = 7;
+		c[2][2] = 10;
+		
+		byte b = 8;
+		GaloisField gf = new GaloisField(b);
+		
+		GFMatrix m1 = new GFMatrix(c, gf);
+		
+		GFMatrix m2 = m1.submatrix(2, 1);
+		
+		assertTrue(m2.getRowDimension() == 2);
+		assertTrue(m2.getColumnDimension() == 1);
+		
+		for(int i=0; i<m2.getRowDimension(); i++){
+			for(int j=0; j<m2.getColumnDimension(); j++){
+//				System.out.println(m2.get(i, j)+" == "+m1.get(i, j));
+				assertTrue(m2.get(i, j) == m1.get(i, j));
+			}	
+		}
+		
+		m1.set(1, 0, (char) 70);
+		assertFalse(m2.get(1, 0) == m1.get(1, 0));
+	}
 }

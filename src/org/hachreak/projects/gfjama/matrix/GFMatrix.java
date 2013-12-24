@@ -133,6 +133,39 @@ public class GFMatrix implements Cloneable, java.io.Serializable {
 	}
 
 	/**
+	 * Return a submatrix [numRows x n] 
+	 * @param numRows number of rows to copy
+	 * @return submatrix
+	 */
+	public GFMatrix submatrix(int numRows){
+			GFMatrix X = new GFMatrix(numRows, n, galoisField);
+			char[][] C = X.getArray();
+			for (int i = 0; i < numRows; i++) {
+				for (int j = 0; j < n; j++) {
+					C[i][j] = A[i][j];
+				}
+			}
+			return X;
+	}
+	
+	/**
+	 * Return a submatrix [numRows x numCols] 
+	 * @param numRows number of rows to copy
+	 * @param numCols number of cols to copy
+	 * @return submatrix
+	 */
+	public GFMatrix submatrix(int numRows, int numCols){
+			GFMatrix X = new GFMatrix(numRows, numCols, galoisField);
+			char[][] C = X.getArray();
+			for (int i = 0; i < numRows; i++) {
+				for (int j = 0; j < numCols; j++) {
+					C[i][j] = A[i][j];
+				}
+			}
+			return X;
+	}
+	
+	/**
 	 * Construct a GFMatrix quickly without checking arguments.
 	 * 
 	 * @param A
