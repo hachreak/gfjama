@@ -162,4 +162,8 @@ public class GaloisField {
 			return false;
 	}
 
+	public static byte getN() {
+		return n;
+	}
+
 }

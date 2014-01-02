@@ -129,7 +129,7 @@ public class TestGFMatrix {
 		c[0][1] = (char)2;
 		c[0][2] = 4;
 		c[1][0] = (char)4;
-		c[1][1] = 43;
+		c[1][1] = GaloisField.getZero();//43;
 		c[1][2] = 10;
 		c[2][0] = 6;
 		c[2][1] = 7;
@@ -139,6 +139,7 @@ public class TestGFMatrix {
 		GaloisField gf = new GaloisField(b);
 		
 		GFMatrix m1 = new GFMatrix(c, gf);
+		m1.print();
 		try {
 			GFMatrix m2 = m1.inverse().inverse();
 			
