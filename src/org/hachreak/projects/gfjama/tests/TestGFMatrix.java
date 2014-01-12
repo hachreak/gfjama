@@ -19,7 +19,8 @@
 
 package org.hachreak.projects.gfjama.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.hachreak.projects.gfjama.matrix.GFMatrix;
 import org.hachreak.projects.gfjama.matrix.GFMatrixException;
@@ -139,7 +140,7 @@ public class TestGFMatrix {
 		GaloisField gf = new GaloisField(b);
 		
 		GFMatrix m1 = new GFMatrix(c, gf);
-		m1.print();
+//		m1.print();
 		try {
 			GFMatrix m2 = m1.inverse().inverse();
 			

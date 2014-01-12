@@ -52,9 +52,8 @@ public class RandomGFMatrix extends GFMatrix {
 		// generate random values
 		for(int i=0; i<m; i++){
 			for(int j=0; j<n; j++){
-//				int r = (int) Math.round(Math.random() * 254);//
-				int r = ( randomizer.nextInt(255));
-				A[i][j] = (char)(r % 255);
+				int r = ( randomizer.nextInt(256));
+				A[i][j] = (char)(r % 256);
 //				char c = A[i][j];
 //				System.out.print("random "+(int)r+" ");//+" - "+c+" - "+(int)c % 254);
 			}
